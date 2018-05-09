@@ -37,11 +37,11 @@ CREATE TABLE Partie(
         numeroPartie    Int NOT NULL ,
         dateCreation    Date ,
         initiateur    Int NOT NULL ,
-        adversaire  Int NOT NULL ,
-        vainqueur Int NOT NULL ,
-        suivant  Int NOT NULL ,
-        couleurInitiateur   Int NOT NULL ,
-        couleurAdversaire Int NOT NULL ,
+        adversaire  Int  ,
+        vainqueur Int ,
+        suivant  Int  ,
+        couleurInitiateur   Int  ,
+        couleurAdversaire Int   ,
         PRIMARY KEY (numeroPartie )
 )ENGINE=InnoDB;
 
@@ -51,3 +51,59 @@ ALTER TABLE Partie ADD CONSTRAINT FK_Partie_vainqueur FOREIGN KEY (vainqueur) RE
 ALTER TABLE Partie ADD CONSTRAINT FK_Partie_suivant FOREIGN KEY (suivant) REFERENCES Joueur(numeroJoueur);
 ALTER TABLE Partie ADD CONSTRAINT FK_Partie_couleurInitiateur FOREIGN KEY (couleurInitiateur) REFERENCES Couleur(numeroCouleur);
 ALTER TABLE Partie ADD CONSTRAINT FK_Partie_couleurAdversaire FOREIGN KEY (couleurAdversaire) REFERENCES Couleur(numeroCouleur);
+
+
+
+#-----------------------------------------------
+#	insertion dans la table JOUEUR 
+#----------------------------------------------- 
+
+
+insert into Joueur values ( 1, 'Nicolas', 'azerty' ) ; 
+insert into Joueur values ( 2, 'Ilona', 'azerty' ) ; 
+insert into Joueur values ( 3, 'Georges', 'azerty' ) ;
+insert into Joueur values ( 4, 'Aicha', 'azerty' ) ;
+insert into Joueur values ( 5, 'Cody', 'azerty' ) ;
+
+ 
+#-----------------------------------------------
+#	insertion dans la table COULEUR 
+#----------------------------------------------- 
+  
+
+insert into Couleur values ( 1, 'Blanc' ) ; 
+insert into Couleur values ( 2, 'Noir' ) ; 
+
+
+#-----------------------------------------------
+#	insertion dans la table PARTIE 
+#----------------------------------------------- 
+
+
+insert into Partie values ( 1, '01/05/18', 5, 2, 2, null, 1, 2 ) ; 
+insert into Partie values ( 2, '01/05/18', 5, 2, 5, null, 2, 1 ) ; 
+insert into Partie values ( 3, '01/05/18', 5, null, null, 5, 1, null ) ; 
+insert into Partie values ( 4, '01/05/18', 2, null, null, null, 2, null ) ; 
+insert into Partie values ( 5, '02/05/18', 5, 1, null, 1, 1, 2 ) ;
+insert into Partie values ( 6, '02/05/18', 5, 1, null, 5, 1, 2 ) ;
+insert into Partie values ( 7, '02/05/18', 1, null, null, null, null, 2 ) ; 
+insert into Partie values ( 8, '02/05/18', 1, null, null, null, null, 2 ) ; 
+insert into Partie values ( 9, '03/05/18', 5, 2, null, 2, 1, 2 ) ; 
+insert into Partie values ( 10, '03/05/18', 2, 1, 2, null, 2, 1 ) ; 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
